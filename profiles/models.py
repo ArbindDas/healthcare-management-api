@@ -12,7 +12,7 @@ class Doctor(models.Model):
     experience = models.IntegerField()
 
     def __str__(self):
-        return self.user.full_name
+        return f"{self.user.full_name}"
 
 
 class Patient(models.Model):
@@ -24,7 +24,7 @@ class Patient(models.Model):
     blood_group = models.CharField(max_length=5)
 
     def __str__(self):
-        return self.user.full_name
+        return f"{self.user.full_name}"
 
 
 class Appointment(models.Model):
@@ -47,3 +47,17 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.patient} -> {self.doctor} ({self.status})"
+    
+    
+    
+    
+class Test(models.Model):
+    username = models.CharField(max_length=100, unique=True)
+    address = models.CharField(max_length=100)
+    phone = models.CharField(max_length=15)
+    city = models.CharField(max_length=100)
+    
+    
+    
+    def __str__(self):
+        return f"{self.username}"
